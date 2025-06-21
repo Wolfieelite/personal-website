@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as OrginalcharactersRouteImport } from './routes/orginalcharacters'
 import { Route as MygamesRouteImport } from './routes/mygames'
+import { Route as GallaryRouteImport } from './routes/gallary'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -22,6 +23,11 @@ const OrginalcharactersRoute = OrginalcharactersRouteImport.update({
 const MygamesRoute = MygamesRouteImport.update({
   id: '/mygames',
   path: '/mygames',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GallaryRoute = GallaryRouteImport.update({
+  id: '/gallary',
+  path: '/gallary',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -38,12 +44,14 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/gallary': typeof GallaryRoute
   '/mygames': typeof MygamesRoute
   '/orginalcharacters': typeof OrginalcharactersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/gallary': typeof GallaryRoute
   '/mygames': typeof MygamesRoute
   '/orginalcharacters': typeof OrginalcharactersRoute
 }
@@ -51,20 +59,28 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/gallary': typeof GallaryRoute
   '/mygames': typeof MygamesRoute
   '/orginalcharacters': typeof OrginalcharactersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/mygames' | '/orginalcharacters'
+  fullPaths: '/' | '/about' | '/gallary' | '/mygames' | '/orginalcharacters'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/mygames' | '/orginalcharacters'
-  id: '__root__' | '/' | '/about' | '/mygames' | '/orginalcharacters'
+  to: '/' | '/about' | '/gallary' | '/mygames' | '/orginalcharacters'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/gallary'
+    | '/mygames'
+    | '/orginalcharacters'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  GallaryRoute: typeof GallaryRoute
   MygamesRoute: typeof MygamesRoute
   OrginalcharactersRoute: typeof OrginalcharactersRoute
 }
@@ -83,6 +99,13 @@ declare module '@tanstack/react-router' {
       path: '/mygames'
       fullPath: '/mygames'
       preLoaderRoute: typeof MygamesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallary': {
+      id: '/gallary'
+      path: '/gallary'
+      fullPath: '/gallary'
+      preLoaderRoute: typeof GallaryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -105,6 +128,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  GallaryRoute: GallaryRoute,
   MygamesRoute: MygamesRoute,
   OrginalcharactersRoute: OrginalcharactersRoute,
 }

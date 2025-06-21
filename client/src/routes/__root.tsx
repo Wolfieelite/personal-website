@@ -19,15 +19,57 @@ function RootComponent() {
         </div>
       </div>
 
-      <div className="border-b-4 border-b-black flex justify-center gap-10">
-        <Link to={"/"} className=""> Home</Link>
-        <Link to={"/gallary"}>Gallary</Link>
-        <Link to={"/orginalcharacters"}>Original Characters</Link>
-        <Link to={"/mygames"}>My Games</Link>
-        <Link to={"/about"}>About</Link>
+      <div className={"border-b-2 border-b-black flex justify-center gap-10"}>
+        <Link
+          to={"/"}
+          className={"text-gray-500 hover:text-black"}
+          activeProps={{
+            className: "font-bold border-black after:after:content-[''] after:block after:w-full after:h-0.25 after:bg-black after:duration-400 after:ease-linear",
+          }}
+        >
+          Home
+        </Link>
+        <Link
+          to={"/gallery"}
+          className={"text-gray-500 hover:text-black"}
+          activeProps={{
+            className: "font-bold border-black after:after:content-[''] after:block after:w-full after:h-0.25 after:bg-black after:duration-400 after:ease-linear",
+          }}
+        >
+          Gallery
+        </Link>
+        <Link
+          to={"/orginalcharacters"}
+          className={"text-gray-500 hover:text-black"}
+          activeProps={{
+            className: "font-bold border-black after:after:content-[''] after:block after:w-full after:h-0.25 after:bg-black after:duration-400 after:ease-linear",
+          }}
+        >
+          Original Characters
+        </Link>
+        <Link
+          to={"/mygames"}
+          className={"text-gray-500 hover:text-black"}
+          activeProps={{
+            className: "font-bold border-black after:after:content-[''] after:block after:w-full after:h-0.25 after:bg-black after:duration-400 after:ease-linear",
+          }}
+        >
+          My Games
+        </Link>
+        <Link
+          to={"/about"}
+          className={"text-gray-500 hover:text-black"}
+          activeProps={{
+            className: "font-bold border-black after:after:content-[''] after:block after:w-full after:h-0.25 after:bg-black after:duration-400 after:ease-linear",
+          }}
+        >
+          About
+        </Link>
       </div>
 
-      <Outlet />
+      <div className="px-8 py-4">
+        <Outlet />
+      </div>
     </>
   );
 }

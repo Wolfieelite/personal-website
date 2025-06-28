@@ -1,15 +1,10 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
 
-import './App.css'
+import "./App.css";
 
 function App() {
-  
-  return (
-    <>
-      <div className="text-9xl">Hello world</div>
-    </>
-  )
+  return <div>helll world</div>;
 }
 
-export default App
+export default App;

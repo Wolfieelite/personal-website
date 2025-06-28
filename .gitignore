@@ -37,3 +37,5 @@ client/.DS_Store
 # Optional: Server-specific
 server/.env
 server/.DS_Store
+server/package.json
+server/package-lock.json
